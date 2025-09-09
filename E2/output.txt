@@ -1,0 +1,94 @@
+IPS-Req Output:
+Here are 25 concise bullet points summarizing the **IPS-Req.pdf** document:
+
+* Defines core terms: credit monitoring, cyber incident, data breach, PII, PHI, enrollee, impacted individual, etc.
+* Contractors must submit a **System Security Plan (SSP)** at moderate or high impact levels based on FIPS 199 and NIST SP 800-53.
+* Compliance with **NIST SP 800-53 and NIST SP 800-171** required; compensating controls may be mandated.
+* Contractors cannot store PII/PHI in financial or administrative records.
+* Ordering Agency approval is mandatory before providing identity protection services.
+* **Data breaches** must be reported within **1 hour**; detailed written report due within **24 hours**.
+* Reports must include narrative, incident details, type of data, assessments, cause, corrective actions, and encryption use (FIPS 140-2).
+* Government provides affected individual lists; contractors may need to perform **skip tracing**.
+* Contractors must create a **dedicated, branded enrollment website**: 508-compliant, 99% uptime, multifactor authentication, mobile-ready.
+* Website must be operational before notifications and linked to a .gov page.
+* Contractors must establish U.S.-based **call centers** with toll-free numbers, English/Spanish support, and 24/7 service.
+* Call centers must maintain wait times under 15 minutes (avg. under 10 minutes).
+* Call centers must provide daily logs and summary reports (calls received, abandoned, enrollments, performance).
+* Identity restoration and theft insurance services must begin within **15 minutes** of contact.
+* **Notification process:** cleanse and deduplicate data (99% accuracy), verify addresses, and distribute via USPS First Class mail.
+* Notifications must be mailed within **5 calendar days** of final list approval; failed notices re-sent within 5 days.
+* Contractors must authenticate impacted individuals before enrollment via web or phone (PIN/IVR).
+* **Credit monitoring:** cover Experian, Equifax, TransUnion; initial report within 48 hours of enrollment.
+* Credit monitoring must identify changes within 24 hours and comply with the Fair Credit Reporting Act.
+* **Identity monitoring:** continuous (24/7) monitoring of internet, dark web, databases, and records.
+* Identity theft insurance: coverage up to **\$5 million per individual**, no deductible; covers wages, legal fees, expenses.
+* **Identity restoration:** available to all impacted individuals; case managers assigned; FCRA/FACTA certified staff.
+* Contractors must protect and purge all PII/PHI per DoD 5220-22-M and NIST SP-800-88, with certification within 30 days.
+* Contractors must ensure confidentiality—no marketing or solicitation allowed using government-provided data.
+* Additional services may include forensic analysis, subsequent credit reports, and offline notification options.
+
+Do you want me to also produce a **tabular breakdown** (service → requirements → timelines/standards) for quick reference?
+
+
+NIST-Req Output:
+Here are 25 concise bullet points summarizing the **NIST-Req.pdf** document:
+
+* Document defines requirements for Identity Protection Services (IPS) under SIN 541990IPS.
+* Establishes terminology: data breach, PII, PHI, cyber incident, enrollee, impacted individual, etc.
+* Contractors must prepare a **System Security Plan (SSP)** at “moderate” or “high” impact per FIPS 199.
+* Compliance with **NIST SP 800-53** and **NIST SP 800-171** is required.
+* Contractors may need compensating controls if higher security is required.
+* Financial/admin systems may not store sensitive PII or PHI.
+* Contractor must report all PII/PHI breaches within **1 hour** of discovery.
+* Detailed written report of breach must follow within **24 hours**.
+* Incident reports must include narrative, timeline, type of data, assessments, cause, and corrective actions.
+* Contractors must use **FIPS 140-2 encryption** for all PII/PHI.
+* Government provides list of affected individuals; contractors may be required to perform skip tracing.
+* Dedicated, branded **enrollment website** required: 508-compliant, 99% uptime, mobile-ready, .gov linked.
+* Website must be fully operational before any notifications.
+* **Call centers** required: U.S.-based, English/Spanish support, toll-free, 24/7 operation.
+* Call wait times: max 15 minutes, average under 10 minutes.
+* Call centers must maintain logs and performance summaries.
+* **Notification process:** cleanse and deduplicate data with 99% accuracy, mail notices within 5 days.
+* Failed notifications must be re-sent within 5 calendar days of updated info.
+* **Credit monitoring:** reports from Experian, Equifax, TransUnion; initial report within 48 hours.
+* All credit file changes must be reported to individuals within 24 hours.
+* **Identity monitoring:** 24/7 monitoring of dark web, databases, criminal/court records, SSN traces, etc.
+* **Identity theft insurance:** \$5 million per individual, no deductible; covers wages, expenses, legal fees.
+* **Identity restoration:** available to all affected; case managers assigned; certified under FCRA/FACTA.
+* Contractors must purge PII/PHI at contract end per NIST SP 800-88; certify deletion within 30 days.
+* Data confidentiality enforced: no marketing, solicitation, or non-approved use of government data.
+
+Would you also like me to highlight the **key differences** between this NIST-Req.pdf and the previous IPS requirement docs you uploaded?
+
+
+PCI-Req Output:
+Here are 25 concise bullet points summarizing the **PCI-Req.pdf** document:
+
+* Document outlines requirements for Identity Protection Services (IPS) tied to data breach response.
+* Defines key terms: data breach, PII, PHI, enrollee, impacted individual, records, etc.
+* Contractors must provide a **System Security Plan (SSP)** compliant with FIPS 199 and NIST SP 800-53.
+* Both **moderate** and **high impact** SSPs may be required depending on data classification.
+* Contractors must adhere to NIST SP 800-171 controls where applicable.
+* No sensitive PII/PHI may be stored in invoicing or financial systems.
+* **Breach reporting:** notify agency within 1 hour of discovery; written report due within 24 hours.
+* Reports must cover narrative, timeline, data affected, cause, and mitigation steps.
+* All PII/PHI must be encrypted per **FIPS 140-2 cryptographic standards**.
+* Government supplies list of affected individuals; contractors may perform **skip tracing**.
+* Contractors must maintain a **branded enrollment website**: 508-compliant, 99% uptime, multifactor authentication, mobile-ready.
+* Websites must be active before notifications are sent and may link to a .gov portal.
+* **Call center** support required: U.S.-based, English/Spanish, toll-free, 24/7 service.
+* Call wait times capped at 15 minutes (average < 10 minutes).
+* Contractors must provide daily call logs and summaries of performance.
+* Notification requirements: cleanse and deduplicate data (99% accuracy) and distribute via USPS First Class mail.
+* Notifications must be mailed within 5 calendar days of list approval; re-sent if undeliverable.
+* Impacted individuals must authenticate eligibility before enrolling, via web or phone (PIN/IVR).
+* **Credit monitoring:** must include Experian, Equifax, TransUnion; initial reports within 48 hours.
+* Credit changes must be detected and reported within 24 hours.
+* **Identity monitoring:** continuous coverage of internet, dark web, criminal/court databases, SSN traces, etc.
+* **Identity theft insurance:** up to \$5 million per individual, no deductible; covers wages, legal fees, travel/child/elder care.
+* **Identity restoration:** available to all impacted individuals; certified case managers assigned.
+* Contractors must purge PII/PHI after performance ends, per NIST SP 800-88, and certify deletion within 30 days.
+* Strict confidentiality rules apply—data cannot be used for marketing or unauthorized purposes.
+
+Would you like me to now create a **side-by-side comparison** of IPS, NIST, and PCI requirement documents you uploaded, showing overlaps and distinctions?
