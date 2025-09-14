@@ -1,0 +1,78 @@
+Here are five different threat models for an object-based storage device like MinIO, using the popular STRIDE framework. Each model outlines a specific threat category, a potential scenario, and the corresponding mitigation.
+
+<br>
+
+1. Spoofing Identity 🎭
+Threat Scenario: An attacker successfully obtains valid user credentials (access key and secret key) for MinIO, perhaps through a phishing attack or by compromising a client application that uses the keys. The attacker can then impersonate the legitimate user, gaining unauthorized access to their buckets and objects. They can read, modify, or delete data, and even create new buckets, without being detected as an external threat.
+
+Attack Vector: The attacker uses the stolen credentials to authenticate to the MinIO server via the S3 API or the MinIO Console, bypassing normal access controls.
+
+Mitigation:
+
+Implement Multi-Factor Authentication (MFA): This is the most crucial mitigation. Even if credentials are stolen, the attacker can't authenticate without the second factor.
+
+Enforce Strong Password Policies: Use complex and regularly rotated keys.
+
+Principle of Least Privilege: Ensure users and service accounts only have the minimum permissions needed to perform their tasks. For example, a user who only needs to read objects shouldn't have permissions to write or delete them.
+
+Audit Logging: Monitor authentication attempts and key usage. An unusually high number of login attempts or requests from a new IP address can indicate a compromised account.
+
+2. Tampering 🔧
+Threat Scenario: An attacker or a compromised internal process gains unauthorized write access to an object storage bucket. The attacker can then modify existing objects, such as a critical configuration file or a financial report, to inject malicious code or corrupt data. For instance, they could alter a website's static content to serve malware to visitors.
+
+Attack Vector: An attacker with write permissions uses the S3 API to upload a new version of an object, overwriting the legitimate one.
+
+Mitigation:
+
+Bucket Versioning: Enable versioning on your buckets. This creates a new version of an object every time it's modified or deleted, allowing you to roll back to a previous, uncompromised state.
+
+Object Lock: Use MinIO's WORM (Write-Once-Read-Many) capability to make objects immutable for a defined period or indefinitely. This is especially useful for compliance and archival purposes.
+
+Integrity Checks: Implement client-side integrity checks using checksums (like MD5 or SHA-256) to ensure the data you're uploading is the same as the data stored on the server.
+
+Strict Access Control Policies: Limit write permissions to the fewest users and applications possible.
+
+3. Repudiation ✍️
+Threat Scenario: An insider with valid permissions performs a malicious action, such as deleting critical business data, and then denies having done it. Without a robust logging and auditing system, it becomes impossible to prove who was responsible for the action.
+
+Attack Vector: A user with delete permissions issues a deleteObject API call, and the action isn't properly logged or its logs can be tampered with.
+
+Mitigation:
+
+Comprehensive Audit Logs: Enable server-side logging that records every API request, including who made the request, what action they took, when it happened, and from where.
+
+Tamper-Proof Logging: Store the audit logs in a separate, secure, and potentially immutable location, like another MinIO bucket with Object Lock enabled, or an external log aggregation service.
+
+Signed Requests: Ensure all S3 API requests are signed with valid credentials. This cryptographic signature provides non-repudiation for the request itself.
+
+Separation of Duties: Enforce policies where no single individual has total control over critical data and its logs.
+
+4. Information Disclosure 🔓
+Threat Scenario: An object storage bucket is misconfigured to be publicly accessible, exposing sensitive data like personally identifiable information (PII), intellectual property, or financial records to the internet. An attacker can use automated scanning tools to discover and access the exposed data.
+
+Attack Vector: Publicly accessible buckets, insecure API endpoints, or weak encryption in transit or at rest.
+
+Mitigation:
+
+Proper Bucket Policies: Use strict bucket policies to limit public access. The default should always be private, with public access granted only on a need-to-know basis for specific use cases, like a public website's assets.
+
+Encryption in Transit: Enforce Transport Layer Security (TLS) for all data transfers between clients and the MinIO server.
+
+Encryption at Rest: Enable server-side encryption to protect data once it's stored on the disk. MinIO supports various encryption options, including SSE-S3 and SSE-KMS.
+
+Regular Audits: Regularly audit bucket policies and permissions to check for misconfigurations and public access.
+
+5. Denial of Service (DoS) 🛑
+Threat Scenario: An attacker floods the MinIO server with a massive number of requests, consuming all available resources (CPU, memory, network bandwidth) and making the service unavailable for legitimate users. This could be a DDoS attack, a user with excessive permissions deleting all data, or an improperly coded application making too many requests.
+
+Attack Vector: The attacker sends a high volume of putObject or getObject requests, or they exploit a vulnerability to cause the server to crash.
+
+Mitigation:
+
+Rate Limiting: Implement rate limiting to restrict the number of requests a single IP address or user can make in a given time period.
+
+Auto-Scaling and Load Balancing: Use a distributed MinIO deployment with load balancers to distribute traffic and automatically scale resources to handle unexpected spikes in demand.
+
+Resource Quotas: Set quotas on buckets and users to prevent a single user or bucket from consuming all available storage space or IOPS.
+
+High Availability: Deploy MinIO in a highly available, multi-node configuration with data redundancy to ensure the service remains operational even if one node fails.
